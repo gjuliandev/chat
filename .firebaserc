@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "chat-proyecto-8e2ef"
+  },
+  "targets": {
+    "chat-proyecto-8e2ef": {
+      "hosting": {
+        "chat": [
+          "chat-proyecto-8e2ef"
+        ]
+      }
+    }
+  }
+}
