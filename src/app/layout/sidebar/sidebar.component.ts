@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FirebaseService } from 'src/app/providers/firebase.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private firebaseService: FirebaseService) { }
 
   ngOnInit(): void {
   }
@@ -24,6 +25,14 @@ export class SidebarComponent implements OnInit {
   }
   signin() {
     this.router.navigateByUrl('/auth/signin');
+  }
+  logout() {
+    this.firebaseService.logout()
+    .then(() => {
+      this.router.navigateByUrl('/auth/login')
+      }).catch((error) => {
+        console.log(error)
+      });
   }
 
 }

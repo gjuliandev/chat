@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ILogin } from 'src/app/models/login.model';
+import { FirebaseService } from 'src/app/providers/firebase.service';
 
 @Component({
   selector: 'app-login',
@@ -9,16 +11,35 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   constructor(
-    private router: Router
+    private router: Router,
+    private firebaseService: FirebaseService
   ) { }
 
   ngOnInit(): void {
   }
 
-  login() {
-    this.router.navigateByUrl('/chats')
+  
+public async login() {
+
+  const loginData: ILogin = {
+    email: 'gjulian@gmail.com',
+    password: '123456'
   }
-  signin() {
+  this.firebaseService.authenticate(loginData)
+      .then( () => {
+                
+        this.router.navigateByUrl('/chats');
+
+      })
+      .catch((error) => {
+      
+        const errorCode = error.code
+        const errorMessage = error.message;
+    
+      });
+  }
+
+  public signin() {
     this.router.navigateByUrl('/auth/signin')
   }
 
