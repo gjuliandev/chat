@@ -10,10 +10,5 @@ export class AppComponent {
   title = 'chat';
 
   constructor(private router: Router)  {}
-  inicio() {
-    this.router.navigateByUrl('/chats');
-  }
-  perfil() {
-    this.router.navigateByUrl('/profile');
-  }
+ 
 }
