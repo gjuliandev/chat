@@ -1,0 +1,87 @@
+.login-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+    border: 1px solid #DAEAD9 ;
+    border-radius: 10px;
+	gap: 5em;
+    background-color: whitesmoke;
+  
+	.logo { 
+        margin-top: 1em;
+    }
+	.email {
+        width: 80%;
+		background: hsl(0deg 0% 100%);
+		box-shadow: 0 0 2em hsl(231deg 62% 94%);
+		padding: 1em;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5em;
+		border-radius: 20px;
+		color: hsl(0deg 0% 30%);
+		margin-top: -3em;
+        icon {
+            width: 50px;
+        }
+		input {
+            width: 90%;
+            justify-content: flex-start;
+			outline: none;
+			border: none;
+			&::placeholder {
+				color: hsl(0deg 0% 0%);
+				font-size: 0.9em;
+			}
+		}
+		
+	}
+	.password {
+
+        width: 80%;
+		background: hsl(0deg 0% 100%);
+		box-shadow: 0 0 2em hsl(231deg 62% 94%);
+		padding: 1em;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5em;
+		border-radius: 20px;
+		color: hsl(0deg 0% 30%);
+		input {
+            width: 90%;
+			outline: none;
+			border: none;
+			&::placeholder {
+				color: hsl(0deg 0% 0%);
+				font-size: 0.9em;
+			}
+		}
+		
+		.show-hide {
+			margin-right: -5em;
+		}
+	}
+	.btnLogin {
+        width: 80%;
+		padding: 1em;
+		background:#23bc68;
+		color: hsl(0 0 100);
+		border: none;
+		border-radius: 30px;
+		font-weight: 600;
+	}
+	.footer {
+		display: flex;
+		font-size: 1em;
+		color: hsl(0deg 0% 37%);
+		gap: 14em;
+		padding-bottom: 10em;
+		span { cursor: pointer }
+	}
+}
+
+button { cursor: pointer; }

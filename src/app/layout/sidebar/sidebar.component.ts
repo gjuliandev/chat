@@ -9,9 +9,14 @@ import { FirebaseService } from 'src/app/providers/firebase.service';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor(private router: Router, private firebaseService: FirebaseService) { }
+  user: any;
+
+  constructor(
+    private router: Router, 
+    public  firebaseService: FirebaseService) { }
 
   ngOnInit(): void {
+    this.user = this.firebaseService.getCurrentUser();
   }
 
   inicio() {

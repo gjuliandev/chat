@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FirebaseService } from 'src/app/providers/firebase.service';
 
 @Component({
@@ -8,10 +8,24 @@ import { FirebaseService } from 'src/app/providers/firebase.service';
 })
 export class ChatsComponent implements OnInit {
 
+  mensaje: string = '';
+  @ViewChild('input') input!: ElementRef;
+  user: any;
+  
   constructor(private firebaseService: FirebaseService) { }
 
   ngOnInit(): void {
-    this.firebaseService.getAllMensajes();
+    this.user = this.firebaseService.getCurrentUser();
   }
 
+  public newMessage() {
+    this.mensaje = (this.input.nativeElement.value).trim();
+    if (this.mensaje ) {
+      this.firebaseService.createMensaje(this.mensaje, this.user)
+        .then( () => {
+          this.mensaje = this.input.nativeElement.value = '';
+        })
+      //   .catch( (error) => console.log(error));
+    }
+  }
 }

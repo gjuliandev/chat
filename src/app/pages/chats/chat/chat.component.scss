@@ -1,0 +1,96 @@
+.message-block {
+    
+    // width: 80%;
+    display: flex;
+    flex-direction: column;
+    img {
+        width: 100%;
+    }
+
+    .my-name {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 20px;
+
+        width: 100px;
+
+        background-color: lightgoldenrodyellow;
+        color: white;
+        padding: 4px 8px;
+        text-align: center;
+        border-radius: 5px;
+    }
+
+    .other-name {
+        display: flex;
+        justify-content: flex-start;
+        margin-left: 20px;
+        width: 100px;
+        background-color: limegreen;
+        color: white;
+        padding: 4px 8px;
+        text-align: center;
+        border-radius: 5px;
+    }
+}
+
+.message{
+    padding: 5px !important;
+    border-radius: 10px !important;
+    margin: 20px 20px 20px 20px !important;
+    display: flex;
+    flex-direction: column;
+
+    .name {
+        font-size: 0.7em;
+        font-weight: bold;
+        color: lightseagreen
+    }
+}
+
+
+
+.text-message{
+    width: 90%;
+    border: 1px solid #c3c3c3;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 2px 2px 5px 0px rgb(0 0 0 / 5%);
+    margin: 20px;
+
+    padding: 10px;
+}
+
+.my-messages {
+    background: #DBF7C5;
+    color: #000;
+    display: flex;
+    justify-content: flex-end;
+  
+}
+
+.other-messages {
+    background: #fff;
+    color: #000;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.my-messages-position {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.other-messages-position {
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+.time {
+    display: flex;
+    justify-content: flex-end;
+    color: #cacaca;
+    font-size: small;
+   
+  }

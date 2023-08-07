@@ -1,0 +1,21 @@
+
+<div *ngIf="user">
+  
+    <div *ngFor="let element of firebaseService.mensajes" [ngClass]="{'my-messages-position': user.uid === element.uid, 'other-messages-position' : user.uid !== element.uid}">
+        <div class="message-block">
+          
+            <div class="message" [ngClass]="{'my-messages': element.uid === user.uid, 'other-messages' : element.uid !== user.uid}">
+                <span class="name">
+                    {{element.nombre}}
+                </span>
+                <span>
+                    {{element.mensaje}}
+                </span>
+                <div class="time text-right"><br>{{ element.fecha | date:'shortTime' }}</div>
+              </div>
+        </div>
+        
+     
+    </div>
+  
+</div>

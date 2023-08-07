@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { Firestore, addDoc, collection, getFirestore, limit, onSnapshot, orderBy, query } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { ILogin } from '../models/login.model';
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut, updateProfile } from '@angular/fire/auth';
 import { ISignin } from '../models/signin.model';
 
 @Injectable({
@@ -19,10 +19,9 @@ export class FirebaseService {
   
   constructor() { }
 
-  getAllMensajes() {
+  getMessages() {
 
     this.mensajes = [];
-
 
     // Hacemos una query para que los ordene por fecha ascendente
     const q =  query(this.collectionRef,
@@ -40,11 +39,12 @@ export class FirebaseService {
 
 
   // Añadimos el mensaje 
-  createMensaje(texto: string) {
+  createMensaje(texto: string, user: any) {
     const body = { 
-      nombre: 'Gabriel',
+      nombre: user.displayName || 'no-name',
       mensaje: texto,
-      fecha: new Date().getTime() 
+      fecha: new Date().getTime(),
+      uid: user.uid
     }
     return addDoc(this.collectionRef, body);
   }
@@ -74,6 +74,12 @@ export class FirebaseService {
     return getAuth().onAuthStateChanged( ( user) => {
       console.log('changing', user)
     });
+  }
+
+  updateName(name: string) { 
+    updateProfile(this.getCurrentUser()!, {
+      displayName: name
+    }).then();
   }
 
   public logout() {

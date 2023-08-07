@@ -1,12 +1,24 @@
-<p>sidebar works!</p>
-
 <div class="content" role="main">
 
-    <button (click)="inicio()">Incio</button>
-    <button (click)="perfil()">Perfil</button>
-    <button (click)="login()">Login</button>
-    <button (click)="signin()">Signin</button>
-    <button (click)="logout()">Logout</button>
+    <div class="sidebar-container">
+    
+        <img src="assets/images/profile.jpg" width="75"/>
+        
+        <p>{{user?.email}}</p>
+    
+        <nav class="nav flex-column">
+            <a class="nav-link active" aria-current="page" (click)="inicio()">Inicio</a>
+            <a class="nav-link" (click)="perfil()">Perfil</a>       
+        </nav>
+          
+        <button type="button" class=" btn logout" (click)="logout()">Cerrar sesión</button>
+        
+    </div>
+
+ 
+    <!-- <button (click)="login()">Login</button>
+    <button (click)="signin()">Signin</button> -->
+
     
    </div>
    

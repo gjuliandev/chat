@@ -1,1 +1,12 @@
-<p>chats works!</p>
+
+
+<section class="messages-container">
+  <app-chat [user]="user"></app-chat>
+</section>
+  
+<footer>
+    <input type="text" #input class="input-message" (keyup.enter)="newMessage()"/>
+    <button type="button" class="btn btn-outline-success" (click)="newMessage()">
+        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+  </button>
+</footer>
