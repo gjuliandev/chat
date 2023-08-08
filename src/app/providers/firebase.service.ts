@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ILogin } from '../models/login.model';
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut, updateProfile } from '@angular/fire/auth';
 import { ISignin } from '../models/signin.model';
+import { update } from '@angular/fire/database';
 
 @Injectable({
   providedIn: 'root'
@@ -80,6 +81,10 @@ export class FirebaseService {
     updateProfile(this.getCurrentUser()!, {
       displayName: name
     }).then();
+  }
+
+  updateUser(body: any) {
+    return updateProfile(this.getCurrentUser()!, body);
   }
 
   public logout() {

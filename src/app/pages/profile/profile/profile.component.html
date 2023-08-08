@@ -6,33 +6,25 @@
     <div class="card-body">
       <h5 class="card-title">Perfil del usuario {{user.displayName}}</h5>
       <form [formGroup]="profileForm">
-          <div class="avatar">
-          <img src="assets/images/profile.jpg" width="75"/>
+          <div class="field avatar">
+            <img [src]="tmpImageURL" width="75" *ngIf="tmpImageURL"/>
+            <img src="assets/images/no-img.jpg" width="75" *ngIf="!tmpImageURL"/>
           </div>
-          <div>
+          <div class="field">
             <label for="name" class="form-label">Nombre completo</label>
-            <input type="email" class="form-control" id="name" placeholder="usuario">
+            <input type="email" class="form-control" id="name" placeholder="usuario" formControlName="nombre">
           </div>
-          <div>
+          <div class="field">
           <label for="email" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="email" placeholder="name@example.com">
+            <input type="email" class="form-control" id="email" placeholder="name@example.com"  formControlName="email">
           </div>
-          <label for="password" class="form-label">Password</label>
-          <input type="password" id="password" class="form-control" aria-describedby="passwordHelpBlock">
-          <div id="passwordHelpBlock" class="form-text">
-            La contraseña debe tener al menos 6 caracteres
-          </div>
-          <label for="confirmPassword" class="form-label">Password</label>
-          <input type="password" id="confirmPassword" class="form-control" aria-describedby="passwordHelpBlock">
-          <div id="passwordHelpBlock" class="form-text">
-            La contraseña debe tener al menos 6 caracteres
-          </div>
-          <div class="mb-3">
+       
+          <div class="field mb-3">
             <label for="formFile" class="form-label">Avatar</label>
             <input class="form-control" type="file" id="formFile" (change)="uploadFile($event)">
           </div>
       </form>
-      <div class="d-grid gap-2">
+      <div class="field d-grid gap-2 m-t-20">
         <button class="btn btn-primary" type="button" (click)="save()">Guardar</button>
       </div>
     </div>

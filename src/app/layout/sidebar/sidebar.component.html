@@ -2,7 +2,8 @@
 
     <div class="sidebar-container">
     
-        <img src="assets/images/profile.jpg" width="75"/>
+        <img [src]="avatar" width="75"/>
+        <img src="assets/images/no-img.jpg" width="75" *ngIf="!avatar"/>
         
         <p>{{user?.email}}</p>
     
@@ -14,11 +15,6 @@
         <button type="button" class=" btn logout" (click)="logout()">Cerrar sesión</button>
         
     </div>
-
- 
-    <!-- <button (click)="login()">Login</button>
-    <button (click)="signin()">Signin</button> -->
-
     
    </div>
    

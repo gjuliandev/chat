@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FirebaseService } from 'src/app/providers/firebase.service';
 import { Storage, getDownloadURL, list, listAll, ref, uploadBytes} from '@angular/fire/storage';
 @Component({
@@ -10,64 +10,56 @@ import { Storage, getDownloadURL, list, listAll, ref, uploadBytes} from '@angula
 export class ProfileComponent implements OnInit {
 
   imagenesCargadas: Array<any> = [];
-  tmpImageUrl: string = '';
+  tmpImageURL: string = '';
   tmpName: string = '';
 
   user: any;
   profileForm: FormGroup = Object.create(null);
+  errorProfile = false;
 
   constructor(
     private firebaseService: FirebaseService,
-    private storage: Storage
+    private storage: Storage,
+    private fb: FormBuilder
   ) { }
 
   ngOnInit(): void {
+    this.user = this.firebaseService.getCurrentUser();
+    this.getTmpAvatar(this.user.photoURL);
+
+    this.errorProfile = false;
+    this.profileForm = this.fb.group({
+      nombre: [this.user.displayName, Validators.required],
+      email: [this.user.email, Validators.compose([Validators.required, Validators.email])],
+      // password: [this.user.password, Validators.required]
+    });
   }
 
   save() {
-    
+    const updateProfile = {
+      displayName: this.profileForm.value.nombre,
+      email: this.profileForm.value.email,
+      photoURL: this.tmpName ? this.tmpName : this.user.photoURL
+    }
+    this.firebaseService.updateUser(updateProfile)
+      .then( resp => console.log(resp) )
+      .catch( error => console.log(error));
   }
 
   uploadFile(e: any) {
     const file = e.target.files[0];
-    this.tmpImageUrl = '';
     const imageRef = ref(this.storage, `images/${file.name}`);
     uploadBytes( imageRef, file).then( x => {
       this.tmpName = x.metadata.name;
-      this.getImage();
+      this.getTmpAvatar(file.name);
     })
     .catch( error => {
       console.log(error)
     });
   }
 
-  getImage() {
-    this.imagenesCargadas = [];
-
-    const imageRef = ref(this.storage, 'images');
-    
-    listAll(imageRef).then( async  images => {
-      for (let image of images.items) {
-        const url = await getDownloadURL(image);
-        this.imagenesCargadas.push(url);
-      }
-      this.selectImage();
-    });
+  async getTmpAvatar(fileName: any) {
+    this.tmpImageURL =  await getDownloadURL(ref(this.storage, `images/${fileName}`));
   }
-
-  selectImage() {
-    if (this.tmpName === '') {
-      this.tmpImageUrl = this.imagenesCargadas[0]
-    } else {
-      this.imagenesCargadas.forEach( (item: string) => {
-        if(item.includes(this.tmpName) ) {
-          this.tmpImageUrl = item;
-          return;
-        };
-      
-      })
-    }
-  }
-
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { getDownloadURL, ref, Storage } from '@angular/fire/storage';
 import { Router } from '@angular/router';
 import { FirebaseService } from 'src/app/providers/firebase.service';
 
@@ -10,13 +11,16 @@ import { FirebaseService } from 'src/app/providers/firebase.service';
 export class SidebarComponent implements OnInit {
 
   user: any;
+  avatar: any;
 
   constructor(
     private router: Router, 
-    public  firebaseService: FirebaseService) { }
+    public  firebaseService: FirebaseService,
+    private storage: Storage) { }
 
   ngOnInit(): void {
     this.user = this.firebaseService.getCurrentUser();
+    this.getAvatar();
   }
 
   inicio() {
@@ -24,12 +28,6 @@ export class SidebarComponent implements OnInit {
   }
   perfil() {
     this.router.navigateByUrl('/profile');
-  }
-  login() {
-    this.router.navigateByUrl('/auth/login');
-  }
-  signin() {
-    this.router.navigateByUrl('/auth/signin');
   }
   logout() {
     this.firebaseService.logout()
@@ -39,5 +37,10 @@ export class SidebarComponent implements OnInit {
         console.log(error)
       });
   }
+
+  async getAvatar() {
+    this.avatar =  await getDownloadURL(ref(this.storage, `images/${this.user.photoURL}`));
+  }
+
 
 }
