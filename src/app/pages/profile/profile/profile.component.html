@@ -4,14 +4,14 @@
   <div class="card">
 
     <div class="card-body">
-      <h5 class="card-title">Perfil del usuario {{user.displayName}}</h5>
+      <h5 class="card-title" i18n>Perfil del usuario {{user.displayName}}</h5>
       <form [formGroup]="profileForm">
           <div class="field avatar">
             <img [src]="tmpImageURL" width="75" *ngIf="tmpImageURL"/>
             <img src="assets/images/no-img.jpg" width="75" *ngIf="!tmpImageURL"/>
           </div>
           <div class="field">
-            <label for="name" class="form-label">Nombre completo</label>
+            <label for="name" class="form-label" i18n>Nombre completo</label>
             <input type="email" class="form-control" id="name" placeholder="usuario" formControlName="nombre">
           </div>
           <div class="field">
@@ -25,7 +25,7 @@
           </div>
       </form>
       <div class="field d-grid gap-2 m-t-20">
-        <button class="btn btn-primary" type="button" (click)="save()">Guardar</button>
+        <button class="btn btn-primary" type="button" (click)="save()" i18n>Guardar</button>
       </div>
     </div>
   </div>

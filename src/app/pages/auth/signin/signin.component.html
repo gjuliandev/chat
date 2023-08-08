@@ -4,7 +4,7 @@
             <img src="assets/images/profile.png" width="125" />
         </div>
         <div class="nombre">
-            <label for="email">Nombre</label>
+            <label for="email" i18n>Nombre</label>
             <div class="input">
                 <svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <g fill="none">
@@ -13,7 +13,7 @@
                     </g>
                 </svg>
                 
-                <input type="text" name="nombre" placeholder="Username" formControlName="nombre"/>
+                <input type="text" name="nombre" placeholder="Nombre" formControlName="nombre" i18n-placeholder/>
               </div>
         </div>
 
@@ -50,12 +50,12 @@
               
               </div>
         </div>
-        <div class="error" *ngIf="errorSignin">
+        <div class="error" *ngIf="errorSignin" i18n>
             {{msg}}
         </div>
-        <button class="btnLogin" (click)="signin()" >Acceder</button>
+        <button class="btnLogin" (click)="signin()" i18n>Acceder</button>
         <div class="footer">
-            <span routerLink="/auth/login">Vover a Login</span>
+            <span routerLink="/auth/login" i18n>Vover a Login</span>
         </div>
     </div>
 </form>

@@ -26,13 +26,13 @@
               
               </div>
         </div>
-        <div class="error" *ngIf="errorLogin">
+        <div class="error" *ngIf="errorLogin" i18n>
             {{msg}}
         </div>
-        <button class="btnLogin" (click)="login()" >Acceder</button>
+        <button class="btnLogin" (click)="login()" i18n>Acceder</button>
         <div class="footer">
-            <span routerLink="/auth/signin">Registar</span>
-            <span>¿Olvidaste la contraseña?</span>
+            <span routerLink="/auth/signin" i18n>Registar</span>
+            <span i18n>¿Olvidaste la contraseña?</span>
         </div>
     </div>
 </form>
