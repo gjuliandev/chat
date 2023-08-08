@@ -1,10 +1,43 @@
-<p>profile works!</p>
 
-<div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
+
+<div class="container">
+  <div class="card">
+
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <h5 class="card-title">Perfil del usuario {{user.displayName}}</h5>
+      <form [formGroup]="profileForm">
+          <div class="avatar">
+          <img src="assets/images/profile.jpg" width="75"/>
+          </div>
+          <div>
+            <label for="name" class="form-label">Nombre completo</label>
+            <input type="email" class="form-control" id="name" placeholder="usuario">
+          </div>
+          <div>
+          <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" placeholder="name@example.com">
+          </div>
+          <label for="password" class="form-label">Password</label>
+          <input type="password" id="password" class="form-control" aria-describedby="passwordHelpBlock">
+          <div id="passwordHelpBlock" class="form-text">
+            La contraseña debe tener al menos 6 caracteres
+          </div>
+          <label for="confirmPassword" class="form-label">Password</label>
+          <input type="password" id="confirmPassword" class="form-control" aria-describedby="passwordHelpBlock">
+          <div id="passwordHelpBlock" class="form-text">
+            La contraseña debe tener al menos 6 caracteres
+          </div>
+          <div class="mb-3">
+            <label for="formFile" class="form-label">Avatar</label>
+            <input class="form-control" type="file" id="formFile" (change)="uploadFile($event)">
+          </div>
+      </form>
+      <div class="d-grid gap-2">
+        <button class="btn btn-primary" type="button" (click)="save()">Guardar</button>
+      </div>
     </div>
   </div>
+
+</div>
+
+
