@@ -1,5 +1,5 @@
 
-<div *ngIf="user">
+<div *ngIf="user" #chats>
   
     <div *ngFor="let element of firebaseService.mensajes" [ngClass]="{'my-messages-position': user.uid === element.uid, 'other-messages-position' : user.uid !== element.uid}">
         <div class="message-block">

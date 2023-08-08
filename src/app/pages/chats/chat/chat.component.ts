@@ -14,7 +14,7 @@ export class ChatComponent implements OnInit {
   constructor(public firebaseService: FirebaseService) { }
 
   ngOnInit(): void {
-    this.firebaseService.getMessages();
+      this.firebaseService.getMessages();
   }
 
 }

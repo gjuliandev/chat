@@ -1,15 +1,16 @@
 import { Injectable, inject } from '@angular/core';
-import { Firestore, addDoc, collection, getFirestore, limit, onSnapshot, orderBy, query } from '@angular/fire/firestore';
+import { Firestore, addDoc, collection, getFirestore, onSnapshot, orderBy, query } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { ILogin } from '../models/login.model';
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut, updateProfile } from '@angular/fire/auth';
 import { ISignin } from '../models/signin.model';
-import { update } from '@angular/fire/database';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
+
 
   firestore: Firestore = inject(Firestore);
   public item$!: Observable<any[]>;
