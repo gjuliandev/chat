@@ -4,6 +4,11 @@
   "newProjectRoot": "projects",
   "projects": {
     "chat": {
+      "i18n": {
+        "locales": {
+          "en": "src/locale/messages.en.xlf"
+        }
+      },
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -36,6 +41,9 @@
             "scripts": []
           },
           "configurations": {
+            "en": {
+              "localize": ["en"]
+            },
             "production": {
               "budgets": [
                 {
@@ -71,6 +79,9 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
+            "en": {
+              "browserTarget": "chat:build:en"
+            },
             "production": {
               "browserTarget": "chat:build:production"
             },

@@ -4,15 +4,23 @@
     <body>
       <trans-unit id="1926157928707021468" datatype="html">
         <source>Inicio</source>
-        <target>Home</target>
+         <target>Home</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/sidebar/sidebar.component.html</context>
           <context context-type="linenumber">11,12</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="5797087197643200257" datatype="html">
+        <source>Perfil</source>
+        <target>Profile</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/layout/sidebar/sidebar.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="1294390259244223882" datatype="html">
         <source>Cerrar sesión</source>
-        <target>Logout</target>
+         <target>Logout</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/layout/sidebar/sidebar.component.html</context>
           <context context-type="linenumber">15,16</context>
@@ -31,7 +39,7 @@
       </trans-unit>
       <trans-unit id="2267635167216034640" datatype="html">
         <source>Acceder</source>
-        <target>Login</target>
+         <target>Login</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/auth/login/login.component.html</context>
           <context context-type="linenumber">32,33</context>
@@ -51,7 +59,7 @@
       </trans-unit>
       <trans-unit id="3564221948834800802" datatype="html">
         <source>¿Olvidaste la contraseña?</source>
-        <target>Forgot your password?</target>
+          <target>Forgot your password?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/auth/login/login.component.html</context>
           <context context-type="linenumber">35,36</context>
@@ -59,7 +67,7 @@
       </trans-unit>
       <trans-unit id="5357661269973482487" datatype="html">
         <source>Nombre</source>
-        <target>Name</target>
+          <target>Name</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/auth/signin/signin.component.html</context>
           <context context-type="linenumber">7</context>
@@ -71,7 +79,7 @@
       </trans-unit>
       <trans-unit id="8655486118803822629" datatype="html">
         <source>Vover a Login</source>
-        <target>Go to Login</target>
+           <target>Go to Login</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/auth/signin/signin.component.html</context>
           <context context-type="linenumber">58</context>
@@ -79,7 +87,7 @@
       </trans-unit>
       <trans-unit id="2906548056641237692" datatype="html">
         <source>Perfil del usuario <x id="INTERPOLATION" equiv-text="{{user.displayName}}"/></source>
-        <target>User profile</target>
+           <target>User profile</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/profile/profile/profile.component.html</context>
           <context context-type="linenumber">7,8</context>
@@ -95,7 +103,7 @@
       </trans-unit>
       <trans-unit id="1372173599787735409" datatype="html">
         <source>Guardar</source>
-        <target>Save</target>
+            <target>Save</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/profile/profile/profile.component.html</context>
           <context context-type="linenumber">28,29</context>
